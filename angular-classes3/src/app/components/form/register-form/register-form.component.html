@@ -1,6 +1,43 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <input type="text" placeholder="Seu nome" formControlName="name">
-    <input type="email" placeholder="Seu e-mail" formControlName="email">
-    <input type="password" placeholder="Crie uma senha" formControlName="password">
-    <button type="submit">Enviar</button>
-</form>    
+  <div>
+    <input type="text" placeholder="Seu nome" formControlName="name" />
+    <p
+      *ngIf="registerForm.get('name')?.errors?.['required'] && registerForm.get('name')?.value !== null"
+    >
+      O nome é obrigatório
+    </p>
+    <p *ngIf="registerForm.get('name')?.errors?.['minlength']">
+      O nome precisa conter pelo menos 3 caracteres
+    </p>
+  </div>
+
+  <div>
+    <input type="email" placeholder="Seu e-mail" formControlName="email" />
+    <p
+      *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.value !== null"
+    >
+      O e-mail é obrigatório
+    </p>
+    <p *ngIf="registerForm.get('email')?.errors?.['email']">
+      Forneça um e-mail válido
+    </p>
+  </div>
+
+  <div>
+    <input
+      type="password"
+      placeholder="Crie uma senha"
+      formControlName="password"
+    />
+    <p
+      *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.value !== null"
+    >
+      A senha é obrigatória
+    </p>
+    <p *ngIf="registerForm.get('password')?.errors?.['minlength']">
+      O nome precisa conter pelo menos 8 caracteres
+    </p>
+  </div>
+
+  <button type="submit">Enviar</button>
+</form>
