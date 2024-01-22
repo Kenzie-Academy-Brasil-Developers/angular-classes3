@@ -2,11 +2,11 @@
   <div>
     <input type="text" placeholder="Seu nome" formControlName="name" />
     <p
-      *ngIf="registerForm.get('name')?.errors?.['required'] && registerForm.get('name')?.value !== null"
+      *ngIf="errors.name?.['required'] && registerForm.get('name')?.value !== null"
     >
       O nome é obrigatório
     </p>
-    <p *ngIf="registerForm.get('name')?.errors?.['minlength']">
+    <p *ngIf="errors.name?.['minlength']">
       O nome precisa conter pelo menos 3 caracteres
     </p>
   </div>
@@ -14,13 +14,11 @@
   <div>
     <input type="email" placeholder="Seu e-mail" formControlName="email" />
     <p
-      *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.value !== null"
+      *ngIf="errors.email?.['required'] && registerForm.get('email')?.value !== null"
     >
       O e-mail é obrigatório
     </p>
-    <p *ngIf="registerForm.get('email')?.errors?.['email']">
-      Forneça um e-mail válido
-    </p>
+    <p *ngIf="errors.email?.['email']">Forneça um e-mail válido</p>
   </div>
 
   <div>
@@ -30,14 +28,14 @@
       formControlName="password"
     />
     <p
-      *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.value !== null"
+      *ngIf="errors.password?.['required'] && registerForm.get('password')?.value !== null"
     >
       A senha é obrigatória
     </p>
-    <p *ngIf="registerForm.get('password')?.errors?.['minlength']">
+    <p *ngIf="errors.password?.['minlength']">
       O nome precisa conter pelo menos 8 caracteres
     </p>
-    <p *ngIf="registerForm.get('password')?.errors?.['pattern']">
+    <p *ngIf="errors.password?.['pattern']">
       A senha precisar conter pelo menos uma letra maiúscula, uma letra
       minúscula e um número.
     </p>

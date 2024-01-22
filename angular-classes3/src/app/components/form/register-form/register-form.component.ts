@@ -25,6 +25,14 @@ export class RegisterFormComponent {
     ]),
   });
 
+  get errors(){
+    return {
+      name: this.registerForm.get('name')?.errors,
+      email: this.registerForm.get('email')?.errors,
+      password: this.registerForm.get('password')?.errors
+    }
+  }
+
   onSubmit() {
     console.log(this.registerForm.get('password')?.errors);
     console.log(this.registerForm.status);
