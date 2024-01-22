@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
@@ -10,13 +10,13 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class RegisterFormComponent {
   registerForm = new FormGroup({
-    name: new FormControl(""),
-    email: new FormControl(""),
-    password: new FormControl("")
+    name: new FormControl(null, [Validators.required, Validators.min(3)]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required, Validators.min(8)])
   });
 
   onSubmit(){
-    console.log(this.registerForm.value);
+    console.log(this.registerForm.status);
     this.registerForm.reset();
   }
 }
