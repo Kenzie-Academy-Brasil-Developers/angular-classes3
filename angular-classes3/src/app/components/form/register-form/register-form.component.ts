@@ -21,6 +21,7 @@ export class RegisterFormComponent {
     password: new FormControl(null, [
       Validators.required,
       Validators.minLength(8),
+      Validators.pattern(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)
     ]),
   });
 

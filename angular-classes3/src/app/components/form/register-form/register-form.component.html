@@ -37,6 +37,10 @@
     <p *ngIf="registerForm.get('password')?.errors?.['minlength']">
       O nome precisa conter pelo menos 8 caracteres
     </p>
+    <p *ngIf="registerForm.get('password')?.errors?.['pattern']">
+      A senha precisar conter pelo menos uma letra maiúscula, uma letra
+      minúscula e um número.
+    </p>
   </div>
 
   <button type="submit">Enviar</button>
