@@ -10,9 +10,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class RegisterFormComponent {
   registerForm = new FormGroup({
-    name: new FormControl(null, [Validators.required, Validators.min(3)]),
+    name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.min(8)])
+    password: new FormControl(null, [Validators.required, Validators.minLength(8)])
   });
 
   onSubmit(){
